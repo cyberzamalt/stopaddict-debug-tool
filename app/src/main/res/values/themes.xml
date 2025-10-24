@@ -1,0 +1,8 @@
+<!-- PATH: app/src/main/res/values/themes.xml -->
+<resources>
+    <style name="Theme.StopAddictDebug" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:statusBarColor">@color/sa_primary</item>
+        <item name="android:navigationBarColor">@color/sa_primary</item>
+        <item name="android:windowBackground">@color/sa_background</item>
+    </style>
+</resources>
