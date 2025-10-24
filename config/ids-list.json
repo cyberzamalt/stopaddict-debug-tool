@@ -1,0 +1,251 @@
+{
+  "version": "1.0.0",
+  "description": "Liste complète des 89 IDs HTML à tester dans StopAddict",
+  "lastUpdate": "2025-10-24",
+  "totalIds": 89,
+  "categories": {
+    "ecrans": {
+      "description": "Écrans principaux (5)",
+      "ids": [
+        "ecran-principal",
+        "ecran-stats",
+        "ecran-calendrier",
+        "ecran-habitudes",
+        "ecran-params"
+      ]
+    },
+    "navigation": {
+      "description": "Boutons de navigation (5)",
+      "ids": [
+        "nav-principal",
+        "nav-stats",
+        "nav-calendrier",
+        "nav-habitudes",
+        "nav-params"
+      ]
+    },
+    "header": {
+      "description": "En-tête date/heure (2)",
+      "ids": [
+        "date-actuelle",
+        "heure-actuelle"
+      ]
+    },
+    "debug": {
+      "description": "Console debug (1)",
+      "ids": [
+        "debug-console"
+      ]
+    },
+    "statsRapides": {
+      "description": "Bandeau stats rapides jour (4)",
+      "ids": [
+        "bar-clopes",
+        "bar-joints",
+        "bar-alcool",
+        "stat-cout-jr"
+      ]
+    },
+    "kpis": {
+      "description": "Bannière KPIs stats header (6)",
+      "ids": [
+        "stats-header",
+        "todayTotal",
+        "weekTotal",
+        "monthTotal",
+        "todayCost",
+        "economies-amount"
+      ]
+    },
+    "cartes": {
+      "description": "Cartes accueil (3)",
+      "ids": [
+        "card-cigs",
+        "card-weed",
+        "card-alcool"
+      ]
+    },
+    "toggles": {
+      "description": "Checkboxes activation modules (3)",
+      "ids": [
+        "toggle-cigs",
+        "toggle-weed",
+        "toggle-alcool"
+      ]
+    },
+    "valeurs": {
+      "description": "Affichage valeurs cartes (3)",
+      "ids": [
+        "note-cigs",
+        "note-weed",
+        "note-alcool"
+      ]
+    },
+    "boutonsPlusMoins": {
+      "description": "Boutons +/- accueil (6)",
+      "ids": [
+        "cl-plus",
+        "cl-moins",
+        "j-plus",
+        "j-moins",
+        "a-plus",
+        "a-moins"
+      ]
+    },
+    "segments": {
+      "description": "Segments sélection types (2)",
+      "ids": [
+        "seg-clopes",
+        "seg-alcool"
+      ]
+    },
+    "conseil": {
+      "description": "Conseil du jour (4)",
+      "ids": [
+        "conseil-card",
+        "conseil-texte",
+        "adv-prev",
+        "adv-pause"
+      ]
+    },
+    "statsScreen": {
+      "description": "Écran stats - onglets et KPIs (9)",
+      "ids": [
+        "chartRange",
+        "kpi-cigarettes",
+        "kpi-cigarettes-value",
+        "kpi-joints",
+        "kpi-joints-value",
+        "kpi-alcohol",
+        "kpi-alcohol-value",
+        "summary-card-period-label",
+        "summary-card-period-value"
+      ]
+    },
+    "statsBanniere": {
+      "description": "Bannière détails stats (5)",
+      "ids": [
+        "stats-titre",
+        "stats-clopes",
+        "stats-joints",
+        "stats-alcool",
+        "stats-alcool-line"
+      ]
+    },
+    "graphiques": {
+      "description": "Canvas graphiques (2)",
+      "ids": [
+        "chart-consommations",
+        "chart-cout-eco"
+      ]
+    },
+    "export": {
+      "description": "Boutons export/import (4)",
+      "ids": [
+        "btn-export-csv",
+        "btn-export-stats",
+        "btn-import",
+        "input-import"
+      ]
+    },
+    "calendrier": {
+      "description": "Calendrier (3)",
+      "ids": [
+        "cal-titre",
+        "cal-grid",
+        "cal-prev",
+        "cal-next"
+      ]
+    },
+    "modaleCalendrier": {
+      "description": "Modale édition jour calendrier (14)",
+      "ids": [
+        "cal-jour",
+        "cal-jour-titre",
+        "cal-jour-cl",
+        "cal-jour-seg-cl",
+        "cal-cl-plus",
+        "cal-cl-moins",
+        "cal-jour-j",
+        "cal-j-plus",
+        "cal-j-moins",
+        "cal-jour-a",
+        "cal-jour-seg-a",
+        "cal-a-plus",
+        "cal-a-moins",
+        "cal-jour-raz",
+        "cal-jour-fermer"
+      ]
+    },
+    "habitudes": {
+      "description": "Habitudes - limites et baseline (7)",
+      "ids": [
+        "limite-clopes",
+        "limite-joints",
+        "limite-biere",
+        "limite-fort",
+        "limite-liqueur",
+        "btn-save-hab"
+      ]
+    },
+    "modaleWarn": {
+      "description": "Modale avertissement 18+ (7)",
+      "ids": [
+        "modal-warn",
+        "warn-title",
+        "chk-warn-18",
+        "chk-warn-hide",
+        "btn-warn-accept",
+        "btn-warn-cancel",
+        "btn-warn-quit",
+        "open-ressources-from-warn"
+      ]
+    },
+    "modalePage": {
+      "description": "Modale pages génériques (4)",
+      "ids": [
+        "modal-page",
+        "page-title",
+        "page-content",
+        "btn-page-close"
+      ]
+    },
+    "snackbar": {
+      "description": "Notifications temporaires (2)",
+      "ids": [
+        "snackbar",
+        "undo-link"
+      ]
+    }
+  },
+  "criticalIds": {
+    "description": "IDs absolument critiques pour le fonctionnement de base",
+    "list": [
+      "ecran-principal",
+      "nav-principal",
+      "date-actuelle",
+      "heure-actuelle",
+      "bar-clopes",
+      "bar-joints",
+      "bar-alcool",
+      "cl-plus",
+      "cl-moins",
+      "j-plus",
+      "j-moins",
+      "a-plus",
+      "a-moins",
+      "card-cigs",
+      "card-weed",
+      "card-alcool",
+      "modal-warn",
+      "btn-warn-accept",
+      "chart-consommations",
+      "cal-grid"
+    ]
+  },
+  "notes": {
+    "kebabCase": "Tous les IDs doivent être en kebab-case (avec tirets)",
+    "compatibility": "Ces IDs sont pour StopAddict v2.4.4 PHASE 2",
+    "totalCount": "Total : 89 IDs répartis en 21 catégories"
+  }
+}
