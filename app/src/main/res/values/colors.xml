@@ -1,0 +1,7 @@
+<!-- PATH: app/src/main/res/values/colors.xml -->
+<resources>
+    <color name="sa_primary">#0B1220</color>
+    <color name="sa_on_primary">#FFFFFF</color>
+    <color name="sa_background">#0E1729</color>
+    <color name="sa_on_background">#E5E7EB</color>
+</resources>
