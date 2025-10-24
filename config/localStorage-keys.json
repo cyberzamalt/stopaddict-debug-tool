@@ -1,0 +1,160 @@
+{
+  "version": "1.0.0",
+  "description": "Liste des clés localStorage utilisées par StopAddict",
+  "lastUpdate": "2025-10-24",
+  "totalKeys": 5,
+  "keys": {
+    "sa_daily_v1": {
+      "description": "Données journalières de consommation",
+      "format": "Object",
+      "structure": {
+        "YYYY-MM-DD": {
+          "cigs": "number",
+          "weed": "number",
+          "alcohol": "number",
+          "hours": {
+            "0-23": {
+              "cigs": "number",
+              "weed": "number",
+              "alcohol": "number"
+            }
+          }
+        }
+      },
+      "example": {
+        "2025-10-24": {
+          "cigs": 5,
+          "weed": 2,
+          "alcohol": 1,
+          "hours": {
+            "9": { "cigs": 2, "weed": 0, "alcohol": 0 },
+            "14": { "cigs": 1, "weed": 1, "alcohol": 0 },
+            "18": { "cigs": 2, "weed": 1, "alcohol": 1 }
+          }
+        }
+      },
+      "critical": true,
+      "canBeCorrupted": true
+    },
+    "sa_settings_v1": {
+      "description": "Paramètres et préférences utilisateur",
+      "format": "Object",
+      "structure": {
+        "modules": {
+          "cigs": "boolean",
+          "weed": "boolean",
+          "alcohol": "boolean"
+        },
+        "prices": {
+          "cigs": "number",
+          "weed": "number",
+          "beer": "number",
+          "fort": "number",
+          "liqueur": "number"
+        }
+      },
+      "example": {
+        "modules": { "cigs": true, "weed": true, "alcohol": true },
+        "prices": { "cigs": 10, "weed": 5, "beer": 2.5, "fort": 15, "liqueur": 20 }
+      },
+      "critical": true,
+      "canBeCorrupted": true
+    },
+    "sa_limits_v1": {
+      "description": "Limites quotidiennes définies par l'utilisateur",
+      "format": "Object",
+      "structure": {
+        "cigs": "number",
+        "weed": "number",
+        "alcohol_biere": "number",
+        "alcohol_fort": "number",
+        "alcohol_liqueur": "number"
+      },
+      "example": {
+        "cigs": 20,
+        "weed": 3,
+        "alcohol_biere": 2,
+        "alcohol_fort": 1,
+        "alcohol_liqueur": 1
+      },
+      "critical": false,
+      "canBeCorrupted": true
+    },
+    "sa_economy_v1": {
+      "description": "Configuration économies et baseline habitudes",
+      "format": "Object",
+      "structure": {
+        "enabled": "boolean",
+        "baseline": {
+          "cigs": "number",
+          "weed": "number",
+          "alcohol_biere": "number",
+          "alcohol_fort": "number",
+          "alcohol_liqueur": "number"
+        }
+      },
+      "example": {
+        "enabled": true,
+        "baseline": {
+          "cigs": 20,
+          "weed": 5,
+          "alcohol_biere": 3,
+          "alcohol_fort": 2,
+          "alcohol_liqueur": 1
+        }
+      },
+      "critical": false,
+      "canBeCorrupted": true
+    },
+    "sa_warn_v1": {
+      "description": "État modale avertissement 18+",
+      "format": "Object",
+      "structure": {
+        "accepted": "boolean",
+        "hide": "boolean",
+        "timestamp": "string (ISO)"
+      },
+      "example": {
+        "accepted": true,
+        "hide": true,
+        "timestamp": "2025-10-24T14:30:00.000Z"
+      },
+      "critical": true,
+      "canBeCorrupted": false
+    }
+  },
+  "validationRules": {
+    "sa_daily_v1": {
+      "mustBeObject": true,
+      "keysAreYMD": true,
+      "valuesHaveStructure": ["cigs", "weed", "alcohol"]
+    },
+    "sa_settings_v1": {
+      "mustBeObject": true,
+      "requiredKeys": ["modules", "prices"]
+    },
+    "sa_limits_v1": {
+      "mustBeObject": true,
+      "valuesAreNumbers": true
+    },
+    "sa_economy_v1": {
+      "mustBeObject": true,
+      "requiredKeys": ["enabled", "baseline"]
+    },
+    "sa_warn_v1": {
+      "mustBeObject": true,
+      "requiredKeys": ["accepted", "hide", "timestamp"]
+    }
+  },
+  "corruptionDetection": {
+    "jsonParseError": "Erreur JSON.parse() - données corrompues",
+    "missingRequiredKeys": "Clés obligatoires manquantes",
+    "wrongDataTypes": "Types de données incorrects",
+    "invalidYMDKeys": "Clés de date invalides (format YYYY-MM-DD attendu)"
+  },
+  "notes": {
+    "versionSuffix": "Le '_v1' permet la migration de données futures",
+    "criticalKeys": "3 clés critiques : sa_daily_v1, sa_settings_v1, sa_warn_v1",
+    "totalStorage": "Environ 50-100 KB pour 30 jours de données"
+  }
+}
