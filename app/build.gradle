@@ -1,0 +1,44 @@
+// PATH: app/build.gradle
+plugins {
+  id 'com.android.application'
+}
+
+android {
+  namespace 'com.stopaddict.debugwrapper'
+  compileSdk 34
+
+  defaultConfig {
+    applicationId "com.stopaddict.debugwrapper"
+    minSdk 23
+    targetSdk 34
+    versionCode 1
+    versionName "1.0"
+  }
+
+  buildTypes {
+    debug {
+      debuggable true
+    }
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_17
+    targetCompatibility JavaVersion.VERSION_17
+  }
+
+  packaging {
+    resources {
+      excludes += ['META-INF/LICENSE*', 'META-INF/NOTICE*']
+    }
+  }
+}
+
+dependencies {
+  implementation 'androidx.appcompat:appcompat:1.7.0'
+  implementation 'androidx.webkit:webkit:1.9.0'
+  implementation 'com.google.android.material:material:1.12.0'
+}
