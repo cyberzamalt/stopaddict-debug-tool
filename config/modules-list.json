@@ -1,0 +1,224 @@
+{
+  "version": "1.0.0",
+  "description": "Liste complète des modules JS de StopAddict et leurs exports",
+  "lastUpdate": "2025-10-24",
+  "totalModules": 13,
+  "modules": {
+    "state.js": {
+      "path": "./js/state.js",
+      "priority": 1,
+      "description": "Source unique de vérité - Gestion état + localStorage",
+      "size": "454 lignes",
+      "critical": true,
+      "exports": [
+        "emit",
+        "on",
+        "getCurrentRange",
+        "setCurrentRange",
+        "ymd",
+        "getSettings",
+        "saveSettings",
+        "setSetting",
+        "getLimits",
+        "saveLimits",
+        "getEconomy",
+        "saveEconomy",
+        "getWarnState",
+        "saveWarnState",
+        "getDaily",
+        "getAllDaily",
+        "addEntry",
+        "removeEntry",
+        "totalsForDate",
+        "totalsForWeek",
+        "totalsForMonth",
+        "totalsForYear",
+        "getAggregates",
+        "getTotalsForRange"
+      ],
+      "eventsEmitted": [
+        "sa:counts-updated",
+        "sa:settings-updated",
+        "sa:range-changed",
+        "sa:route-changed"
+      ]
+    },
+    "app.js": {
+      "path": "./js/app.js",
+      "priority": 2,
+      "description": "Orchestrateur principal - Boot + routing + horloge",
+      "size": "120 lignes",
+      "critical": true,
+      "exports": [],
+      "imports": [
+        "initModals",
+        "initCounters",
+        "initCharts",
+        "on",
+        "emit"
+      ],
+      "functions": [
+        "showToast",
+        "startClock",
+        "switchTo",
+        "bindNav",
+        "boot"
+      ]
+    },
+    "counters.js": {
+      "path": "./js/counters.js",
+      "priority": 3,
+      "description": "Compteurs accueil + boutons +/-",
+      "size": "141 lignes",
+      "critical": true,
+      "exports": [
+        "initCounters"
+      ],
+      "imports": [
+        "addEntry",
+        "removeEntry",
+        "getDaily",
+        "on",
+        "emit"
+      ]
+    },
+    "charts.js": {
+      "path": "./js/charts.js",
+      "priority": 4,
+      "description": "Graphiques Chart.js (lazy-loaded)",
+      "size": "228 lignes",
+      "critical": true,
+      "exports": [
+        "initCharts"
+      ],
+      "imports": [
+        "getAllDaily",
+        "getSettings",
+        "ymd",
+        "getCurrentRange",
+        "setCurrentRange",
+        "on"
+      ],
+      "dependencies": [
+        "Chart.js v3 (window.Chart)"
+      ]
+    },
+    "modals.js": {
+      "path": "./js/modals.js",
+      "priority": 5,
+      "description": "Modales (18+, pages, etc.)",
+      "size": "219 lignes",
+      "critical": true,
+      "exports": [
+        "initModals"
+      ]
+    },
+    "stats.js": {
+      "path": "./js/stats.js",
+      "priority": 6,
+      "description": "Bannière stats (jour/semaine/mois)",
+      "size": "129 lignes",
+      "critical": false,
+      "exports": [
+        "initStats"
+      ]
+    },
+    "calendar.js": {
+      "path": "./js/calendar.js",
+      "priority": 7,
+      "description": "Calendrier mensuel (lazy-loaded)",
+      "size": "252 lignes",
+      "critical": false,
+      "exports": [
+        "initCalendar"
+      ]
+    },
+    "export.js": {
+      "path": "./js/export.js",
+      "priority": 8,
+      "description": "Import/Export CSV/JSON",
+      "size": "277 lignes",
+      "critical": false,
+      "exports": [
+        "initExport"
+      ]
+    },
+    "settings.js": {
+      "path": "./js/settings.js",
+      "priority": 9,
+      "description": "Réglages + horloge",
+      "size": "119 lignes",
+      "critical": false,
+      "exports": [
+        "initSettings"
+      ]
+    },
+    "economy.js": {
+      "path": "./js/economy.js",
+      "priority": 10,
+      "description": "Calculs économies",
+      "size": "134 lignes",
+      "critical": false,
+      "exports": [
+        "initEconomy"
+      ]
+    },
+    "limits.js": {
+      "path": "./js/limits.js",
+      "priority": 11,
+      "description": "Gestion limites",
+      "size": "120 lignes",
+      "critical": false,
+      "exports": [
+        "initLimits"
+      ]
+    },
+    "i18n.js": {
+      "path": "./js/i18n.js",
+      "priority": 12,
+      "description": "Internationalisation",
+      "size": "56 lignes",
+      "critical": false,
+      "exports": [
+        "initI18n"
+      ]
+    },
+    "utils.js": {
+      "path": "./js/utils.js",
+      "priority": 13,
+      "description": "Utilitaires généraux",
+      "size": "94 lignes",
+      "critical": false,
+      "exports": [
+        "formatDate",
+        "formatNumber",
+        "debounce",
+        "throttle"
+      ]
+    }
+  },
+  "initOrder": {
+    "description": "Ordre d'initialisation CRITIQUE",
+    "sequence": [
+      "state.js (implicite via imports)",
+      "modals.js (initModals)",
+      "counters.js (initCounters)",
+      "charts.js (initCharts)",
+      "startClock()",
+      "bindNav()"
+    ]
+  },
+  "externalDependencies": {
+    "Chart.js": {
+      "version": "v3",
+      "required": true,
+      "loadedVia": "<script src='./js/vendor/chart.umd.min.js'></script>",
+      "globalVariable": "window.Chart"
+    }
+  },
+  "notes": {
+    "totalExports": "24 exports pour state.js + fonctions des autres modules",
+    "criticalModules": "5 modules critiques (state, app, counters, charts, modals)",
+    "lazyLoading": "charts.js et calendar.js sont lazy-loaded"
+  }
+}
