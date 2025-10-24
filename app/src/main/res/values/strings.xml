@@ -1,6 +1,6 @@
 <!-- PATH: app/src/main/res/values/strings.xml -->
 <resources>
     <string name="app_name">StopAddict Debug Tool</string>
-    <!-- Mets ici l’URL publique de ton tool (GitHub Pages) -->
-    <string name="web_url">https://cyberzamalt.github.io/stopaddict-debug-tool/</string>
+    <!-- 👇 Mets ICI l’URL GitHub Pages de STOPADDICT (pas celle du debug-tool) -->
+    <string name="web_url">https://TON-URL-PAGES-STOPADDICT/</string>
 </resources>
