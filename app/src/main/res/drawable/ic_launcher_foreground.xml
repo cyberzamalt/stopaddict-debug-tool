@@ -1,0 +1,10 @@
+<!-- PATH: app/src/main/res/drawable/ic_launcher_foreground.xml -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="108" android:viewportHeight="108">
+    <!-- Logo simple : cercle + S -->
+    <path android:fillColor="#FFFFFF"
+        android:pathData="M54,12a42,42 0,1 1 0,84a42,42 0,1 1 0,-84z"/>
+    <path android:fillColor="#0B1220"
+        android:pathData="M35,45c0,-8 8,-13 19,-13c10,0 19,4 19,13c0,7 -6,10 -14,12l-6,1c-6,1 -9,3 -9,6c0,3 4,6 10,6c6,0 10,-2 13,-6l7,4c-4,7 -12,11 -21,11c-11,0 -20,-6 -20,-15c0,-8 6,-12 15,-14l7,-1c6,-1 10,-2 10,-6c0,-4 -5,-6 -10,-6c-6,0 -10,2 -12,5z"/>
+</vector>
