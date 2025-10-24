@@ -1,0 +1,100 @@
+{
+  "version": "1.0.0",
+  "description": "Liste des événements custom dispatchés et écoutés dans StopAddict",
+  "lastUpdate": "2025-10-24",
+  "totalEvents": 4,
+  "events": {
+    "sa:counts-updated": {
+      "emittedBy": "state.js (après addEntry/removeEntry)",
+      "listenedBy": [
+        "counters.js",
+        "stats.js",
+        "charts.js"
+      ],
+      "description": "Émis après modification des compteurs (boutons +/-)",
+      "payload": {
+        "date": "string (YYYY-MM-DD)",
+        "totals": {
+          "cigs": "number",
+          "weed": "number",
+          "alcohol": "number"
+        }
+      },
+      "critical": true,
+      "frequency": "Haute (à chaque clic +/-)"
+    },
+    "sa:settings-updated": {
+      "emittedBy": "state.js (après saveSettings)",
+      "listenedBy": [
+        "counters.js",
+        "stats.js",
+        "charts.js",
+        "settings.js"
+      ],
+      "description": "Émis après modification des paramètres (toggles modules, prix, etc.)",
+      "payload": {
+        "settings": {
+          "modules": "Object",
+          "prices": "Object"
+        }
+      },
+      "critical": true,
+      "frequency": "Moyenne (à chaque modif réglages)"
+    },
+    "sa:range-changed": {
+      "emittedBy": "state.js (via setCurrentRange)",
+      "listenedBy": [
+        "charts.js",
+        "stats.js"
+      ],
+      "description": "Émis lors du changement de période (jour/semaine/mois/année)",
+      "payload": {
+        "range": "string (day|week|month|year)"
+      },
+      "critical": true,
+      "frequency": "Faible (changement onglet stats)"
+    },
+    "sa:route-changed": {
+      "emittedBy": "app.js (switchTo)",
+      "listenedBy": [
+        "charts.js",
+        "calendar.js",
+        "stats.js"
+      ],
+      "description": "Émis lors du changement d'écran (navigation)",
+      "payload": {
+        "screen": "string (ecran-principal|ecran-stats|ecran-calendrier|...)"
+      },
+      "critical": false,
+      "frequency": "Moyenne (à chaque navigation)"
+    }
+  },
+  "eventBus": {
+    "implementation": "EventTarget natif (bus = new EventTarget())",
+    "location": "state.js",
+    "methods": {
+      "emit": "emit(eventName, detail)",
+      "on": "on(eventName, handler)"
+    }
+  },
+  "eventFlow": {
+    "userAction": "Utilisateur appuie sur bouton +",
+    "step1": "counters.js détecte clic",
+    "step2": "counters.js appelle state.addEntry()",
+    "step3": "state.js met à jour localStorage",
+    "step4": "state.js émet 'sa:counts-updated'",
+    "step5": "counters.js + stats.js + charts.js reçoivent l'événement",
+    "step6": "Chaque module rafraîchit son UI"
+  },
+  "testingStrategy": {
+    "detection": "Vérifier que l'événement est bien émis (via addEventListener)",
+    "payload": "Valider structure du payload (detail.range, detail.totals, etc.)",
+    "listeners": "Compter le nombre de listeners attachés",
+    "timing": "Mesurer le délai entre émission et réception"
+  },
+  "notes": {
+    "allEventsPrefixed": "Tous les événements commencent par 'sa:' pour éviter conflits",
+    "criticalEvents": "3 événements critiques (counts, settings, range)",
+    "busLocation": "Event bus centralisé dans state.js uniquement"
+  }
+}
